@@ -1,8 +1,8 @@
 %{?scl:%scl_package perl-Archive-Zip}
 
 Name:           %{?scl_prefix}perl-Archive-Zip
-Version:        1.57
-Release:        3%{?dist}
+Version:        1.59
+Release:        1%{?dist}
 Summary:        Perl library for accessing Zip archives
 
 Group:          Development/Libraries
@@ -40,16 +40,17 @@ BuildRequires:  %{?scl_prefix}perl(FileHandle)
 BuildRequires:  %{?scl_prefix}perl(integer)
 BuildRequires:  %{?scl_prefix}perl(IO::File)
 BuildRequires:  %{?scl_prefix}perl(IO::Seekable)
-# lib not used at tests
 BuildRequires:  %{?scl_prefix}perl(Time::Local)
 BuildRequires:  %{?scl_prefix}perl(vars)
 # Tests
 BuildRequires:  %{?scl_prefix}perl(File::Spec::Unix)
 # IO::Scalar not used
+BuildRequires:  %{?scl_prefix}perl(lib)
 %if !%{defined perl_small}
 BuildRequires:  %{?scl_prefix}perl(Test::MockModule)
 %endif
 BuildRequires:  %{?scl_prefix}perl(Test::More) >= 0.88
+BuildRequires:  %{?scl_prefix}perl(utf8)
 BuildRequires:  %{?scl_prefix}perl(warnings)
 BuildRequires:  unzip
 BuildRequires:  zip
@@ -116,6 +117,9 @@ find $RPM_BUILD_ROOT -type f -name .packlist -delete
 
 
 %changelog
+* Mon Aug 22 2016 Jitka Plesnikova <jplesnik@redhat.com> - 1.59-1
+- 1.59 bump
+
 * Tue Jul 19 2016 Petr Pisar <ppisar@redhat.com> - 1.57-3
 - SCL
 
